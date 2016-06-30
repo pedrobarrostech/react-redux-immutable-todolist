@@ -1,10 +1,9 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import * as actionCreators from '../actions/action_creators';
-import TodoList from './TodoList'
-import TodoHeader from './TodoHeader'
-import TodoTools from './TodoTools'
-import Footer from './Footer'
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/TodoActions';
+import TodoList from './TodoList';
+import TodoHeader from './TodoHeader';
+import TodoTools from './TodoTools';
 
 export class TodoApp extends React.Component {
   getNbActiveItems() {
@@ -17,19 +16,21 @@ export class TodoApp extends React.Component {
     return 0;
   }
   render() {
-    return <div>
-      <section className="todoapp">
-        <TodoHeader addItem={this.props.addItem}/>
-        <TodoList {...this.props} />
-        <TodoTools  changeFilter={this.props.changeFilter}
-                    filter={this.props.filter}
-                    nbActiveItems={this.getNbActiveItems()}
-                    clearCompleted={this.props.clearCompleted}/>
-      </section>
-      <Footer />
-    </div>
+    return (
+      <div>
+        <section className="todoapp">
+          <TodoHeader addItem={this.props.addItem}/>
+          <TodoList {...this.props} />
+          <TodoTools
+            changeFilter={this.props.changeFilter}
+            filter={this.props.filter}
+            nbActiveItems={this.getNbActiveItems()}
+            clearCompleted={this.props.clearCompleted}/>
+        </section>
+      </div>
+    )
   }
-};
+}
 
 function mapStateToProps(state) {
   return {
