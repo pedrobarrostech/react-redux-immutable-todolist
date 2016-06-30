@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {List, Map} from 'immutable';
 import {compose, createStore} from 'redux';
 import {Provider} from 'react-redux';
-import reducer from './reducer';
+import reducer from './reducers/reducer';
 import {TodoAppContainer} from './components/TodoApp';
 
 const createStoreDevTools = compose(
